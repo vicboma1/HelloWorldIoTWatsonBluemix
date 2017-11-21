@@ -3,26 +3,27 @@ Proyecto scratching para el testeo de la plataforma Node-Red con soporte a un Io
 
 ### Esquema Node-RED
 
-![](https://github.com/vicboma1/HelloWorldBluemix/blob/master/assets/_helloWorldIoT.gif)
+![](https://github.com/vicboma1/HelloWorldIoTWatsonBluemix/blob/master/assets/_toLowerCaseIoT.gif)
 
 La solución se basa en un esquema simple donde se injecta un paquete con las siguientes propiedades :
 
-* Topic : Nombre descriptivo del paquete
-* Payload : Contenido del paquete
+* topic : Nombre descriptivo del paquete
+* payload : Contenido del paquete
 * msgid : Atributo oculto que crea el empaquetado.
 
-Dentro del Payload tenemos que definir el mensaje el protocolo de comunicación MQTT
+Dentro del astibuto payload tenemos que definir el mensaje del protocolo de comunicación MQTT
 
 * d : Define un paquete para un dispositivo
 
 
-Este mensaje es recibido por un nodo IoT Watson output que envía a la entrada de un IoT Watson input el paquete que recibe a través de un protocolo MQTT.
+Este mensaje es recibido por un nodo IoT Watson output que actúa como publicador.
+El nodo IoT Watson input consume el paquete.
 
 Una vez recibido el paquete, el nodo 'function' manipula la información del paquete (payload) y saca el resultado por la consola haciendo un lower case de la string "Hola MuNDo" a "hello world" dentro de un patrón de mensajería.
 
 
 ## Pasos a seguir
-1.   Copiar la ![Plantilla txt](https://raw.githubusercontent.com/vicboma1/HelloWorldBluemix/master/assets/_helloWorldIoT.txt) con "Control A" + "Control C"
+1.   Copiar la ![Plantilla txt](https://raw.githubusercontent.com/vicboma1/HelloWorldIoTWatsonBluemix/master/assets/_helloWorldIoT.txt) con "Control A" + "Control C"
 
 2.   Ir al menú contextual de nuestra aplicación Node-RED
 
