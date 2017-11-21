@@ -18,7 +18,7 @@ Dentro del Payload tenemos que definir el mensaje el protocolo de comunicación 
 
 Este mensaje es recibido por un nodo IoT Watson output que envía a la entrada de un IoT Watson input el paquete que recibe a través de un protocolo MQTT.
 
-Una vez recibido el paquete, el nodo ToLowerCase manipula la información del paquete (payload) y saca el resultado por la consola.
+Una vez recibido el paquete, el nodo 'function' manipula la información del paquete (payload) y saca el resultado por la consola haciendo un lower case de la string "Hola MuNDo" a "hello world" dentro de un patrón de mensajería.
 
 
 ## Pasos a seguir
