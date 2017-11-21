@@ -1,0 +1,147 @@
+﻿[
+    {
+        "id": "a9b350c3.465bd",
+        "type": "inject",
+        "z": "deb0d57.1c46528",
+        "name": "Mensaje \"Hola MuNDo\"",
+        "topic": "Inject",
+        "payload": "Hola MuNDo",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "dcee3945.c9ab78"
+            ]
+        ]
+    },
+    {
+        "id": "2c7cc1a0.1da15e",
+        "type": "debug",
+        "z": "deb0d57.1c46528",
+        "name": "Console Debug",
+        "active": true,
+        "console": "false",
+        "complete": "payload.d.value",
+        "x": 700,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f5bae35e.73be4",
+        "type": "comment",
+        "z": "deb0d57.1c46528",
+        "name": "Nodo Injector",
+        "info": "",
+        "x": 230,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "9b6b7ed9.1a34e",
+        "type": "ibmiot out",
+        "z": "deb0d57.1c46528",
+        "authentication": "boundService",
+        "apiKey": "",
+        "outputType": "evt",
+        "deviceId": "Dispositivo 1",
+        "deviceType": "Dispositivo Type 1",
+        "eventCommandType": "EventHello",
+        "format": "json",
+        "data": "Envío de información",
+        "qos": 0,
+        "name": "IBM IoT",
+        "service": "registered",
+        "x": 680,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e7c309da.07c968",
+        "type": "ibmiot in",
+        "z": "deb0d57.1c46528",
+        "authentication": "boundService",
+        "apiKey": "",
+        "inputType": "evt",
+        "deviceId": "",
+        "applicationId": "",
+        "deviceType": "+",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": true,
+        "allApplications": "",
+        "allDeviceTypes": true,
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 198,
+        "y": 317,
+        "wires": [
+            [
+                "f44ca151.2b0ee"
+            ]
+        ]
+    },
+    {
+        "id": "f44ca151.2b0ee",
+        "type": "function",
+        "z": "deb0d57.1c46528",
+        "name": "ToLowerCase",
+        "func": "function ToLowerCase() {\n    return { \"payload\" : msg.payload.d.value.toLowerCase() };\n}\n\nreturn ToLowerCase();\n",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 320,
+        "wires": [
+            [
+                "fde7bc63.b6f41"
+            ]
+        ]
+    },
+    {
+        "id": "dcee3945.c9ab78",
+        "type": "function",
+        "z": "deb0d57.1c46528",
+        "name": "Protocolo MQTT",
+        "func": "\nmsg = {\n    \"payload\": {\n        \"d\" :{\n            \"value\" : msg.payload\n        }\n    }\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "2c7cc1a0.1da15e",
+                "9b6b7ed9.1a34e"
+            ]
+        ]
+    },
+    {
+        "id": "fde7bc63.b6f41",
+        "type": "debug",
+        "z": "deb0d57.1c46528",
+        "name": "Console Debug toLowerCase",
+        "active": true,
+        "console": "false",
+        "complete": "payload",
+        "x": 620,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f79f0b1d.1f9f38",
+        "type": "comment",
+        "z": "deb0d57.1c46528",
+        "name": "@Autor: Victor Bolinches ",
+        "info": "",
+        "x": 264,
+        "y": 431,
+        "wires": []
+    }
+]
