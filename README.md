@@ -38,4 +38,4 @@ Una vez recibido el paquete, el nodo 'function' manipula la información del paq
 
 @Author: [Victor Bolinches Marin](https://github.com/vicboma1)  
 
-@Documento Principal  [CoEValencia - Hackathon 2017](https://github.com/CoEValencia/Hackathon_2017)
+@Documento Principal [CoEValencia - Hackathon 2017](https://goo.gl/vmuVXH)
